@@ -182,3 +182,24 @@ console.log(0o767 === 503)
 // });
 
 // console.log(total);
+
+// ######### 4:23 #####################
+
+// es5 way copy to array new values
+// var numbers = [1,2,3,4,5];
+// var otherArray = [];
+
+// for(var i=0; i < numbers.length; i++){
+//     otherArray.push(numbers[i]*10);
+// }
+
+// console.log(otherArray);
+
+// es6 way using 
+const numbers = [1,2,3,4,5];
+var otherArray = numbers.map(function(number){
+    return number * 10;
+});
+
+console.log(otherArray);
+
