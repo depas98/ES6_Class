@@ -196,10 +196,151 @@ console.log(0o767 === 503)
 // console.log(otherArray);
 
 // es6 way using 
-const numbers = [1,2,3,4,5];
-var otherArray = numbers.map(function(number){
-    return number * 10;
-});
+// const numbers = [1,2,3,4,5];
+// const otherArray = numbers.map(function(number){
+//     return number * 10;
+// });
 
-console.log(otherArray);
+// console.log(otherArray);
 
+// ######### 4:24 #####################
+
+// const users = [
+//     {user:'Martin Jones',age:32,eyes:'brown'},
+//     {user:'Jane Doe',age:20,eyes:'blue'},
+//     {user:'Brian Wrecker',age:40,eyes:'brown'}
+// ];
+
+// const listOfUsers = users.map(function(user){
+//     return user.user;
+// });
+
+// listOfUsers.forEach(function(name){
+//     const select = document.querySelector('select');
+//     select.insertAdjacentHTML('afterbegin', `<option value=${name}>${name}</option>`)
+// })
+
+// users.forEach(function(userData){
+//     const select = document.querySelector('select');
+//     select.insertAdjacentHTML('afterbegin', `<option value=${userData.user}>${userData.user}</option>`)
+// })
+
+// ######### 4:29 #####################
+
+// const products = [
+//     {name:'ipdad', category:'devices'},
+//     {name:'Sony 3 d', category:'TV'},
+//     {name:'E256', category:'Blender'},
+//     {name:'Super vision', category:'TV'},
+//     {name:'Iphone 7', category:'phones'}
+// ];
+
+// products.filter(p => p.category === 'TV')
+//         .map(p => p.name)
+//         .forEach(n => console.log(`Item ${n}`));
+
+// const result = products.filter(p => p.category === 'TV');
+// result.forEach(p => console.log(`Item ${p.name} category ${p.category}`));
+
+
+// ######### 4:31 #####################
+// const channels = [
+//     {name:'HBO',premium:true},
+//     {name:'LIFE',premium:false},
+//     {name:'Max',premium:true},
+//     {name:'Cooking channel',premium:false},
+//     {name:'WOBI',premium:false}
+//  ];
+
+//  channels.filter(c => c.premium)
+//         .forEach(c => console.log(c.name));
+
+
+// ######### 4:33 #####################
+//const channel = [
+    // {name:'HBO',premium:true},
+    // {name:'LIFE',premium:false},
+    // {name:'Max',premium:true},
+    // {name:'Cooking channel',premium:false},
+    // {name:'WOBI',premium:false}
+    // ];
+    // const user = {
+    //     name:'Francis',
+    //     premium:true,
+    //     premiumChannels:function(){
+    //         return channel.filter(c => this.premium && c.premium);
+    //     },
+    //     channels:function(){
+    //         return channel.filter(c => !c.premium);
+    //     }
+    // }
+    // console.log(user.premiumChannels())
+    // // brings HBO and MAX
+    // console.log(user.channels())
+    // brings LIFE, COOCKING CHANNEL AND WOBI
+
+// ######### 4:35 #####################    
+
+// const brands = [
+//     {name:'Apple',id:1},
+//     {name:'HP',id:2},
+//     {name:'Samsung',id:3},
+//     {name:'Samsung',id:4},
+// ];
+
+// const brand = brands.find(b => b.name === 'Samsung');
+// console.log(brand);
+
+// ######### 4:36 #####################  
+
+// const cars = [
+//     {brand:"Ford",price:500,available:2,type:"Sport car"},
+//     {brand:"Nissan",price:200,available:5,type:"Wagon"},
+//     {brand:"Chevy",price:300,available:4,type:"Sport car"},
+//     {brand:"Porche",price:100,available:0,type:"Urban"}
+// ];
+
+// function getResults(price,type){
+//     return cars.find(c => c.price < price && 
+//                             c.type === type &&
+//                             c.available > 0);
+// }
+
+// document.querySelector('.search').addEventListener('click',function(){
+
+//     let price = parseInt(document.querySelector('#price').value);
+//     let type = document.querySelector('#type').value;
+
+//     let results = getResults(price, type);
+
+//     if (results){
+//         console.log(`Found ${results.brand} for $ ${results.price}`);
+//     }
+//     else{
+//         console.log("sorry, no car for you.");
+//     }
+
+// });
+
+// ######### 4:37 #####################
+
+const students = [
+    {name:"Francis", grade:5},
+    {name:"Martin", grade:7},
+    {name:"Martha", grade:7},
+]
+
+// let allStudentsPassedTheCourse = students.every(s => s.grade >= 6);
+
+// let allStudentsPassedTheCourse = true;
+
+for(let i = 0; i < students.length; i++){
+    let student = students[i];
+
+    if (student.grade < 6){
+        allStudentsPassedTheCourse = false;
+        break;
+    }
+}
+
+console.log(allStudentsPassedTheCourse);
