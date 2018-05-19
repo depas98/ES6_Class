@@ -324,23 +324,369 @@ console.log(0o767 === 503)
 
 // ######### 4:37 #####################
 
-const students = [
-    {name:"Francis", grade:5},
-    {name:"Martin", grade:7},
-    {name:"Martha", grade:7},
-]
+// const students = [
+//     {name:"Francis", grade:5},
+//     {name:"Martin", grade:7},
+//     {name:"Martha", grade:7},
+// ]
 
 // let allStudentsPassedTheCourse = students.every(s => s.grade >= 6);
 
 // let allStudentsPassedTheCourse = true;
 
-for(let i = 0; i < students.length; i++){
-    let student = students[i];
+// for(let i = 0; i < students.length; i++){
+//     let student = students[i];
 
-    if (student.grade < 6){
-        allStudentsPassedTheCourse = false;
-        break;
-    }
+//     if (student.grade < 6){
+//         allStudentsPassedTheCourse = false;
+//         break;
+//     }
+// }
+
+// console.log(allStudentsPassedTheCourse);const students = [
+//     {name:"Francis", grade:5},
+//     {name:"Martin", grade:7},
+//     {name:"Martha", grade:7},
+// ]
+
+// let allStudentsPassedTheCourse = students.every(s => s.grade >= 6);
+
+// let allStudentsPassedTheCourse = true;
+
+// for(let i = 0; i < students.length; i++){
+//     let student = students[i];
+
+//     if (student.grade < 6){
+//         allStudentsPassedTheCourse = false;
+//         break;
+//     }
+// }
+
+// console.log(allStudentsPassedTheCourse);
+
+// ######### 4:38 #####################
+
+// const students = [
+//     {name:"Francis", grade:5},
+//     {name:"Martin", grade:7},
+//     {name:"Martha", grade:7},
+// ]
+
+// // let allStudentsPassedTheCourse = students.every(s => s.grade >= 6);
+// let allStudentsPassedTheCourse = students.some(s => s.grade >= 6);
+
+// // let allStudentsPassedTheCourse = true;
+
+// // for(let i = 0; i < students.length; i++){
+// //     let student = students[i];
+
+// //     if (student.grade < 6){
+// //         allStudentsPassedTheCourse = false;
+// //         break;
+// //     }
+// // }
+
+// console.log(allStudentsPassedTheCourse);
+
+// ######### 4:39 #####################
+// const previous = 200;
+// const curr = [
+//     {expense:'Guitar', amount:200},
+//     {expense:'Mic', amount:100},
+//     {expense:'Strap', amount:100}
+// ]
+
+// const result = curr.reduce((sum, expense) => sum + expense.amount, previous /* This is the intial value*/);
+
+// console.log(result);
+
+// ######### 4:40 #####################
+// const users = [
+//     {name:'Francis',lastname:'Norton',age:25},
+//     {name:'Martha',lastname:'Norton',age:55},
+//     {name:'Rob',lastname:'Norton',age:58}
+// ]
+// const names = users.reduce((start,user) => {
+//     start.push(user.name)
+//     return start;
+// },['Jason']);
+
+// console.log(names.sort());
+
+// let names2 = users.map(user => user.name);
+// names2.push('Jason');
+
+// console.log(names2.sort());
+
+// ######### 4:45 #####################
+// const numbers = [10,20,30,40,50];
+// let total = 0;
+
+// for(let number of numbers){
+//     total += number;
+// }
+
+// console.log(total);
+
+// ######### 4:46 #####################
+// const value = function(name,age){
+//     return `My name is ${name} and age ${age}`;
+// }
+
+// using fat arrays aka lambdas
+
+// const value = (name, age) => `My name is ${name} and age ${age}`;
+
+// console.log(value("james",45));
+
+// const value2 = (x,y) => x + y;
+
+// console.log(value2(1,2));
+
+// const value3 = x => x + 10;
+
+// console.log(value3(1));
+
+// ######### 4:47 #####################
+// const cars = {
+//     brands:['Ford','Audi','BMW'],
+//     category:'Sport car',
+//     message:function(){
+//         let $this = this;   // need to safe off this because of the scope issue
+//         return $this.brands.forEach(function(brand){console.log(`${brand} is a ${$this.category}`)});
+//     }
+// }
+
+// const cars = {
+//     brands:['Ford','Audi','BMW'],
+//     category:'Sport car',
+//     message:function(){
+//         //let $this = this;   // don't use lambdas scope is the same
+//         return this.brands.forEach(brand => console.log(`${brand} is a ${this.category}`));
+//     }
+// }
+
+// cars.message();
+
+// ######### 6:51 #####################
+// const createCharacter = function(name, powers){
+//     return {
+//         name:name,
+//         powers:powers,
+//         getfriends:function(){
+//             return 'Lois Lane';
+//         }
+//     }
+// }
+
+// E6 way
+// const createCharacter = (name, powers) => {
+//     return {
+//         name,
+//         powers,
+//         getfriends: () => 'Lois Lane'
+//         // or
+//         // getfriends(){return 'Lois Lane'}
+//     }
+// };
+
+// const characterObj = createCharacter('Superman','Fly');
+// console.log(characterObj);
+// console.log(characterObj.getfriends());
+
+// ######### 7:54 #####################
+// function cars(brand){
+//     if (!brand){
+//         brand = 'Ford';
+//     }
+//     console.log(`My brand is ${brand}`);
+// }
+
+// //Instead
+// function cars(brand="Ford"){
+//     console.log(`My brand is ${brand}`);
+// }
+
+// cars();
+
+// another exaxmple with random
+
+// const randomBrand = () => {
+//     const brands = ['ford','nissan','bmw'];
+//     return brands[Math.floor(Math.random() * brands.length)];
+// }
+
+// const cars = (brand=randomBrand()) => {
+//     console.log(`My brand is ${brand}`);
+// }
+
+// cars();
+
+// ######### 8:57 #####################
+// ES5 Way
+// function args(arg1,arg2,arg3){
+//     const arguments = [arg1,arg2,arg3];
+//     console.log(arguments);
+// }
+
+// function args(...args){
+//     console.log(args);
+//     console.log(args[1]);
+// }
+
+// args("Val 1", "Val 2", "Val 3");
+
+// ######### 8:58 #####################
+
+// ES5 Way
+// const brands = ["Ford", "Nissan"];
+// const otherBrands = ["Audi","BMW"];
+
+// const newArray = brands.concat(otherBrands);
+// newArray.push("Other Brand");
+
+// console.log(newArray);
+
+// // ES6 Spread Operator
+
+// const newArray2 = [...brands,...otherBrands,"Other Brand"];
+// console.log(newArray2);
+
+// ######### 9:63 #####################
+
+// ES5 classes aka prototypes
+
+// function Car(){};
+// // var car = new Car();
+
+// Car.prototype.status = "New";
+// Car.prototype.wheels = 4;
+// Car.prototype.avail = function(){
+//     console.log("available");
+// }
+
+// var ford = new Car();
+
+// console.log(ford.__proto__);
+// console.log(ford.wheels);
+
+
+// ######### 9:64 #####################
+
+// ES6 classes
+
+// class Car{
+//     constructor(){
+//         this.status = "New";
+//         this.wheels = 4;
+//         this.avail = () => console.log("available"); 
+//     }
+// };
+// const car = new Car();
+// const ford = new Car();
+// ford.color = "red";
+
+// console.log(car);
+// console.log(ford);
+
+// ######### 9:65 #####################
+
+// ES6 classes
+
+// class Car{
+    // constructor(options){
+    //     this.status = options.status;
+    //     this.wheels = options.wheels;
+    //     this.avail = options.avail; 
+    // }
+    // or
+//     constructor({staus,wheels,avail}){
+//         this.status = status;
+//         this.wheels = wheels;
+//         this.avail = avail; 
+//     }
+// };
+
+
+// const car = new Car({
+//     status:"New",
+//     wheels:4,
+//     avail: () => console.log("available")
+// });
+
+// console.log(car);
+
+// ######### 9:66 #####################
+
+// ES6 classes inheritiance
+
+// class Car{
+//     constructor(){
+//         this.status = "New";
+//         this.wheels = 4;
+//         this.avail = () => console.log("available"); 
+//     }
+
+//     otherFunction(){
+//         console.log("hey");
+//     }
+// };
+// const car = new Car();
+
+// class Ford extends Car{
+//     constructor(){
+//         super();
+//     }
+// }
+
+// const ford = new Ford();
+// ford.color = "red";
+
+// console.log(car);
+// console.log(ford);
+
+// ford.avail();
+// ford.otherFunction();
+
+// ######### 9:67 #####################
+// Destructuring
+
+// ES5 way
+// var user = {
+//     name:"Francis",
+//     lastName:"Jones",
+//     age:25
+// }
+
+// var name = user.name;
+// var lastName = user.lastName;
+// var age = user.age;
+
+// ES6 way
+const user = {
+    name:"Francis",
+    lastName:"Jones",
+    age:25
 }
 
-console.log(allStudentsPassedTheCourse);
+// const {name} = user;
+// const {lastName} = user;
+// const {age} = user;
+
+// or
+
+const {name,lastName,age} = user;
+
+console.log(name);
+console.log(lastName);
+console.log(age);
+
+// const message = (user) => 
+//     console.log(`My name is ${user.name} ${user.lastName}, age ${user.age}`);
+
+// or
+
+const message = ({name,lastName,age},salute) => 
+    console.log(`My name is ${name} ${lastName}, age ${age} ${salute}`);
+
+message(user,"hey");
